@@ -1,0 +1,98 @@
+.tileContainer{
+    width: 430px;
+    height: 535px;
+    border: 3px solid var(--lightRose);
+    border-radius: 20px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.topContainer{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    height: 300px;
+    align-items: center;
+    justify-content: space-around;
+}
+.bottomContainer{
+    width: 400px;
+    height: 180px;
+}
+.bigImg{
+    width: 200px;
+    height: 200px;
+}
+.topRightPartContainer{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.topLeftPartContainer{
+
+}
+.smallImg{
+    width: 60px;
+    height: 60px;
+    margin: 5px 0;
+}
+.columnContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 10px;
+}
+.label{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+    text-align: center;
+}
+.orderButton{
+    width: 220px;
+    height: 65px;
+    background-color: var(--lightMint);
+    color: var(--white);
+    border-radius: 20px;
+    font-size: var(--fontSize28);
+    font-weight: var(--fontWeightBold);
+}
+.rowContainer{
+    display: flex;
+    flex-direction: row;
+}
+.smallerImg{
+    width: 60px;
+    height: 60px;
+    margin: 5px 0;
+}
+.topCupcakeContainer{
+    display: flex;
+    flex-direction: column;
+}
+.topCupcakeRightPartContainer{
+    display: flex;
+    flex-direction: column;
+}
+.plus{
+    font-size: var(--fontSize28);
+    font-weight: var(--fontWeightBold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topMacaroonContainer{
+    display: flex;
+    flex-direction: row;
+    height: 303px;
+}
+.topMacaroonRightPartContainer{
+    display: flex;
+    flex-direction: row;
+}
+.topMacaroonLeftPartContainer{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,26 @@
+.tileImg{
+    
+}
+.tileLabel{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+}
+.tileContainer {
+    width: 570px;
+    height: 565px;
+    text-align: center;
+    /* border: 1px solid var(--darkBlue); */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.tileImg {
+    width: 520px;
+    max-height: 470px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+  

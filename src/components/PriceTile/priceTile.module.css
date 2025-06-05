@@ -1,0 +1,80 @@
+.tileContainer{
+    margin: 10px 0;
+}
+.tileInnerContainer{
+    width: 380px;
+    height: 490px;
+    border-radius: 20px;
+    display: flex;
+    border: 1px solid var(--lightMint);
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+}
+.cakePriceLabel{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+}
+.imgContainer{
+    width: 380px;
+    height: 215px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.imgSmall{
+    width: 100px;
+    height: 100px;
+}
+.imgMiddle{
+    width: 150px;
+    height: 150px;
+}
+.imgBig{
+    width: 180px;
+    height: 170px;
+}
+.displayNone{
+
+}
+.offerDescriptionContainer{
+    display: flex;
+    flex-direction: row;
+}
+.rowContainerLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 10px;
+}
+.rowContainerRight{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+}
+.label{
+    font-size: var(--fontSize18);
+    font-weight: var(--fontWeightBold);
+    text-align: end;
+}
+.labelCupcake{
+    font-size: var(--fontSize18);
+    font-weight: var(--fontWeightBold);
+    text-align: end;
+    height: 48px;
+}
+.rowContainerLeftInCupcake{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 10px;
+    width: 170px;
+}
+.rowContainerRightInCupcake{
+     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+    width: 170px;
+}

@@ -1,0 +1,28 @@
+.ownDesertContainer{
+
+}
+.selectTypeSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.pageHeadContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.pageHead{
+    width: 900px;
+    height: 80px;
+    display: flex;
+    border-radius: 20px;
+    background-color: var(--lightRose);
+    justify-content: center;
+    align-items: center;
+}
+.pageHeadText{
+    text-align: center;
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+}

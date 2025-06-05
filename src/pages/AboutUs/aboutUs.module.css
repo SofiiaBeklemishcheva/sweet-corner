@@ -1,0 +1,94 @@
+.pageContent{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    align-items: center;
+}
+.rowContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+    align-items: center;
+}
+.lineImg{
+    width: 475px;
+    height: 290px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+    height: 290px;
+}
+.fullScreenText{
+    width: 700px;
+    word-wrap: break-word;
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightSemiBold);
+    text-indent: 20px;
+    text-align: justify;
+}
+.rowWithPhotoContainer{
+    width: 1200px;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+}
+.photoContainerLeft{
+    height: 550px;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+.photoContainerRight{
+    height: 550px;
+    display: flex;
+    align-content: flex-end;
+    flex-wrap: wrap;
+ }
+.noTextImg{
+    width: 550px;
+    height: 500px;
+    border-radius: 20px;
+}
+.justTextRow{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+.justText{
+    width: 1200px;
+    word-wrap: break-word;
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightSemiBold);
+    text-indent: 20px;
+    text-align: justify;
+    margin: 10px 0 10px 0;
+}
+.noTextSmallImg{
+    width: 390px;
+    height: 390px;
+    margin: 5px;
+    border-radius: 20px;
+}
+.photoContainerMiddle{
+    height: 550px;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.justTextUl{
+    list-style: disc;
+    padding-left: 1.5em;
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightSemiBold);
+}
+.justTextNoIndent{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightSemiBold);
+}

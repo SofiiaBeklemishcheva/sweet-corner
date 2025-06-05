@@ -1,0 +1,125 @@
+.buttonContainer{
+    width: 200px;
+    height: 70px;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--lightRose);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonContainer:hover{
+    width: 200px;
+    height: 70px;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--darkRose);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonLabel{
+    font-size: var(--fontSize24);
+    font-weight: var( --fontWeightBold);
+}
+.greenButtonContainer{
+    display: flex;
+    border-radius: 20px;
+    width: 220px;
+    height: 65px;
+    background-color: var(--lightMint);
+    justify-content: center;
+    align-items: center;
+}
+.greenButtonLabel{
+    font-size: var(--fontSize20);
+    font-weight: var( --fontWeightBold);
+    color: var(--white);
+}
+
+.activeButton, 
+.desertKindButton{
+    width: 310px;
+    height: 310px;
+    display: flex;
+    background-color: var(--white);
+    border: 1px solid var(--lightRose);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.activeButton{
+    background-color: var(--lightMint);
+}
+.desertKindButton{
+
+}
+.desertKindButtonContainer{
+    width: 380px;
+    height: 380px;
+    border: 1px solid var(--lightMint);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+}
+.desertKindButtonImg{
+    width: 200px;
+    height: 200px;
+}
+.activeButtonRounded{
+
+}
+.desertKindButtonRounded{
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--darkBlue);
+    border-radius: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.activeButtonRounded{
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--darkBlue);
+    background-color: var(--lightRose);
+    border-radius: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.desertKindButtonContainerRounded{
+
+}
+
+.buttonRoundedInnerContainer{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.desertKindButtonImgRounded{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    object-fit: cover;
+}
+.desertKindSmallButtonImg{
+
+}
+
+.smallRoundedButtonLabel{
+
+}
+.roundedButtonLabel{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+    text-align: center;
+    margin: 10px 0;
+}

@@ -1,0 +1,80 @@
+.articleContainer{
+    width: 1200px;
+}
+.articleTitleContainer{
+    width: 1200px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: var(--lightRose);
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.articleTitle{
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightBold);
+    text-align: start;
+    text-justify: center;
+    padding-left: 1.5em;
+    margin: 0;
+}
+.topRowContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.imgContainer{
+    margin: 0 10px;
+}
+.rowImgContainer{
+    width: 575px;
+    height: 420px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.rowTextContainer{
+    display: flex;
+}
+.descriptionTextContainer{
+    margin: 40px 0;
+}
+.topReverseRowContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px 0;
+}
+.rowTextContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.textContainer{
+
+}
+.conclusionImg{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.text{
+    margin: 5px 0;
+    text-indent: 20px;
+    font-size: var(--fontSize24);
+    font-weight: var(--fontWeightSemiBold);
+    text-align: justify;
+}
+.backButtonContainer{
+
+}
+.backButton{
+    background-color: var(--lightMint);
+    width: 120px;
+    height: 40px;
+    color: var(--white);
+    font-size: var(--fontSize18);
+    font-weight: var(--fontWeightSemiBold);
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

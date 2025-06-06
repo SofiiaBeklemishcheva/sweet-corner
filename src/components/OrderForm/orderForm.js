@@ -52,15 +52,15 @@ const Cake = ({  }) => {
 
 
     const orderData = {
-      spongeType: selectedSponge.label,
-      spongeColor: spongeColor.label,
-      fillingKind: fillingKind.label,
-      fillingFlavor: fillingFlavor.label,
-      creamKind: creamKind.label,
-      creamColor: creamColor.label,
-      creamFlavor: creamFlavor.label,
-      frosting: cakeFrosting.label,
-      frostingColor: frostingColor.label,
+      spongeType: selectedSponge?.label ?? "Nie wybrano",
+      spongeColor: spongeColor?.label ?? "Nie wybrano",
+      fillingKind: fillingKind?.label ?? "Nie wybrano",
+      fillingFlavor: fillingFlavor?.label ?? "Nie wybrano",
+      creamKind: creamKind?.label ?? "Nie wybrano",
+      creamColor: creamColor?.label ?? "Nie wybrano",
+      creamFlavor: creamFlavor?.label ?? "Nie wybrano",
+      frosting: cakeFrosting?.label ?? "Nie wybrano",
+      frostingColor: frostingColor?.label ?? "Nie wybrano",
     };
 
     fetch("/api/cakeOrder", {
@@ -410,12 +410,12 @@ const Cupcake = ({}) => {
         }
     
         const formatted = cupcakes.map((c) => ({
-          spongeColor: c.spongeColor.label,
-          fillingKind: c.fillingKind.label,
-          fillingFlavor: c.fillingFlavor.label,
-          creamKind: c.creamKind.label,
-          creamColor: c.creamColor.label,
-          quantity: c.quantity,
+          spongeColor: c.spongeColor?.label ?? "Nie wybrano",
+          fillingKind: c.fillingKind?.label ?? "Nie wybrano",
+          fillingFlavor: c.fillingFlavor?.label ?? "Nie wybrano",
+          creamKind: c.creamKind?.label ?? "Nie wybrano",
+          creamColor: c.creamColor?.label ?? "Nie wybrano",
+          quantity: c.quantity ?? 1,
         }));
     
         fetch("/api/cupcakeOrder", {
@@ -547,13 +547,13 @@ const Macaroon = ({}) => {
           return;
         }
     
-        const formatted = macaroons.map(m => ({
-          spongeColor: m.spongeColor.label,
-          fillingKind: m.fillingKind.label,
-          fillingFlavor: m.fillingFlavor.label,
-          creamKind: m.creamKind.label,
-          creamColor: m.creamColor.label,
-          quantity: m.quantity
+        const formatted = macaroons.map((m) => ({
+          spongeColor: m.spongeColor?.label ?? "Nie wybrano",
+          fillingKind: m.fillingKind?.label ?? "Nie wybrano",
+          fillingFlavor: m.fillingFlavor?.label ?? "Nie wybrano",
+          creamKind: m.creamKind?.label ?? "Nie wybrano",
+          creamColor: m.creamColor?.label ?? "Nie wybrano",
+          quantity: m?.quantity ?? 1,
         }));
     
         fetch("/api/macaroonOrder", {

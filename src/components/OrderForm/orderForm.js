@@ -52,19 +52,18 @@ const Cake = ({  }) => {
 
 
     const orderData = {
-        spongeType: formatValue(selectedSponge),
-        spongeColor: formatValue(spongeColor),
-        fillingKind: formatValue(fillingKind),
-        fillingFlavor: formatValue(fillingFlavor),
-        creamKind: formatValue(creamKind),
-        creamColor: formatValue(creamColor),
-        creamFlavor: formatValue(creamFlavor),
-        frosting: formatValue(cakeFrosting),
-        frostingColor: formatValue(frostingColor),
-        desertKind: {label: "Tort", buttonId: "cake"}
-      };
+      spongeType: selectedSponge.label,
+      spongeColor: spongeColor.label,
+      fillingKind: fillingKind.label,
+      fillingFlavor: fillingFlavor.label,
+      creamKind: creamKind.label,
+      creamColor: creamColor.label,
+      creamFlavor: creamFlavor.label,
+      frosting: cakeFrosting.label,
+      frostingColor: frostingColor.label,
+    };
 
-    fetch("/api/zamowienie", {
+    fetch("/api/cakeOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
@@ -410,22 +409,19 @@ const Cupcake = ({}) => {
           return;
         }
     
-        const formatted = cupcakes.map(c => ({
-          spongeColor: formatValue(c.spongeColor),
-          fillingKind: formatValue(c.fillingKind),
-          fillingFlavor: formatValue(c.fillingFlavor),
-          creamKind: formatValue(c.creamKind),
-          creamColor: formatValue(c.creamColor),
-          quantity: c.quantity
+        const formatted = cupcakes.map((c) => ({
+          spongeColor: c.spongeColor.label,
+          fillingKind: c.fillingKind.label,
+          fillingFlavor: c.fillingFlavor.label,
+          creamKind: c.creamKind.label,
+          creamColor: c.creamColor.label,
+          quantity: c.quantity,
         }));
     
-        fetch("/api/zamowienie", {
+        fetch("/api/cupcakeOrder", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            cupcakes: formatted,
-            desertKind: { label: "Cupcake", buttonId: "cupcake" }
-          })
+          body: JSON.stringify(formatted)
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))
@@ -552,21 +548,18 @@ const Macaroon = ({}) => {
         }
     
         const formatted = macaroons.map(m => ({
-          spongeColor: formatValue(m.spongeColor),
-          fillingKind: formatValue(m.fillingKind),
-          fillingFlavor: formatValue(m.fillingFlavor),
-          creamKind: formatValue(m.creamKind),
-          creamColor: formatValue(m.creamColor),
+          spongeColor: m.spongeColor.label,
+          fillingKind: m.fillingKind.label,
+          fillingFlavor: m.fillingFlavor.label,
+          creamKind: m.creamKind.label,
+          creamColor: m.creamColor.label,
           quantity: m.quantity
         }));
     
-        fetch("/api/zamowienie", {
+        fetch("/api/macaroonOrder", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            macaroons: formatted,
-            desertKind: { label: "Macaroon", buttonId: "macaroon" }
-          })
+          body: JSON.stringify(formatted)
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))

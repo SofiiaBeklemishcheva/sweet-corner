@@ -21,7 +21,7 @@ function App() {
               <Route path="offer" element={<Offer />} />
               <Route path="ownDesert" element={<OwnDesert />} />
               <Route path="aboutUs" element={<AboutUs />} />
-              <Route path="thankYou" element={<ThankYouPage  />} />
+              <Route path="thankYouPage" element={<ThankYouPage  />} />
             </Route>
           </Routes>
         </BrowserRouter>

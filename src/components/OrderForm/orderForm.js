@@ -61,6 +61,7 @@ const Cake = ({  }) => {
       creamFlavor: creamFlavor?.label ?? "Nie wybrano",
       frosting: cakeFrosting?.label ?? "Nie wybrano",
       frostingColor: frostingColor?.label ?? "Nie wybrano",
+      email: "sweeetcornerr@gmail.com",
     };
 
     fetch("/api/cakeOrder", {
@@ -415,7 +416,7 @@ const Cupcake = ({}) => {
           fillingFlavor: c.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: c.creamKind?.label ?? "Nie wybrano",
           creamColor: c.creamColor?.label ?? "Nie wybrano",
-          quantity: c.quantity ?? 1,
+          email: "sweeetcornerr@gmail.com",
         }));
     
         fetch("/api/cupcakeOrder", {
@@ -553,7 +554,7 @@ const Macaroon = ({}) => {
           fillingFlavor: m.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: m.creamKind?.label ?? "Nie wybrano",
           creamColor: m.creamColor?.label ?? "Nie wybrano",
-          quantity: m?.quantity ?? 1,
+          email: "sweeetcornerr@gmail.com",
         }));
     
         fetch("/api/macaroonOrder", {

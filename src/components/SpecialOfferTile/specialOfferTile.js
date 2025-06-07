@@ -25,27 +25,27 @@ const Macaroons = ({}) =>{
 <div className={styles.topMacaroonContainer}>
             <div className={styles.topMacaroonLeftPartContainer}>
             <div className={styles.columnContainer}>
-                    <img src={"../assets/macaroon (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (2).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (3).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (4).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (turcus).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (rose).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (purple).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (navy-blue).png"} className={styles.smallerImg}/>
                 </div>
                 <div className={styles.columnContainer}>
-                    <img src={"../assets/macaroon (5).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (6).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (7).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (brown).png"} className={styles.smallerImg}/>  
+                    <img src={"../assets/macaroonsColors/macaroon (brown).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (6).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (4).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (3).png"} className={styles.smallerImg}/>  
                 </div>
             </div>
             <div className={styles.topMacaroonRightPartContainer}>
                 <p className={styles.plus}>+</p>
                 <div className={styles.columnContainer}>
-                    <img src={"../assets/macaroon (purple).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon (rose).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (3).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (4).png"} className={styles.smallerImg}/>
                 </div>
                 <div className={styles.columnContainer}>
-                    <img src={"../assets/macaroon (turcus).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/macaroon.png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (purple).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/macaroonsColors/macaroon (rose).png"} className={styles.smallerImg}/>
                 </div>
             </div>
         </div>
@@ -64,28 +64,28 @@ const Cupcakes = ({}) =>{
   <div className={styles.topCupcakeContainer}>
             <div className={styles.topLeftPartContainer}>
             <div className={styles.rowContainer}>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (turcus).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake orange.png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (brown).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (green).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (navy-blue).png"} className={styles.smallerImg}/>
                 </div>
                 <div className={styles.rowContainer}>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake (1).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (purple).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (red).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (rose).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (turcus).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (green).png"} className={styles.smallerImg}/>
                 </div>
             </div>
             <div className={styles.topCupcakeRightPartContainer}>
                 <p className={styles.plus}>+</p>
                 <div className={styles.rowContainer}>
-                    <img src={"../assets/cupcake orange.png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake orange.png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake orange.png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake orange.png"} className={styles.smallerImg}/>
-                    <img src={"../assets/cupcake orange.png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (red).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (rose).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (turcus).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (brown).png"} className={styles.smallerImg}/>
+                    <img src={"../assets/cupcakesColors/cupcake (navy-blue).png"} className={styles.smallerImg}/>
                 </div>
             </div>
         </div>

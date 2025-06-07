@@ -1,0 +1,50 @@
+[
+  {
+    "ContainingType": "SweetCornerBE.Controllers.MailsSendingController",
+    "Method": "CakeOrder",
+    "RelativePath": "api/MailsSending/cake",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cake",
+        "Type": "SweetCornerBE.Model.CakeResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SweetCornerBE.Controllers.MailsSendingController",
+    "Method": "CupcakeOrder",
+    "RelativePath": "api/MailsSending/cupcake",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cupcakes",
+        "Type": "System.Collections.Generic.List\u00601[[SweetCornerBE.Model.MacaronCupcakesResponse, SweetCornerBE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SweetCornerBE.Controllers.MailsSendingController",
+    "Method": "MacaroonOrder",
+    "RelativePath": "api/MailsSending/macaroon",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "macaroons",
+        "Type": "System.Collections.Generic.List\u00601[[SweetCornerBE.Model.MacaronCupcakesResponse, SweetCornerBE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

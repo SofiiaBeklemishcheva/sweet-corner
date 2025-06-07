@@ -59,25 +59,19 @@ const Cake = ({  }) => {
 
 
     const orderData = {
-        spongeType: formatValue(selectedSponge),
-        spongeColor: formatValue(spongeColor),
-        fillingKind: formatValue(fillingKind),
-        fillingFlavor: formatValue(fillingFlavor),
-        creamKind: formatValue(creamKind),
-        creamColor: formatValue(creamColor),
-        creamFlavor: formatValue(creamFlavor),
-        frosting: formatValue(cakeFrosting),
-        frostingColor: formatValue(frostingColor),
-        desertKind: {label: "Tort", buttonId: "cake"},
-        client: {
-            name: clientName,
-            surname: clientSurname,
-            mail: clientEmail,
-            phone: clientPhone
-          }
-      };
+      spongeType: selectedSponge?.label ?? "Nie wybrano",
+      spongeColor: spongeColor?.label ?? "Nie wybrano",
+      fillingKind: fillingKind?.label ?? "Nie wybrano",
+      fillingFlavor: fillingFlavor?.label ?? "Nie wybrano",
+      creamKind: creamKind?.label ?? "Nie wybrano",
+      creamColor: creamColor?.label ?? "Nie wybrano",
+      creamFlavor: creamFlavor?.label ?? "Nie wybrano",
+      frosting: cakeFrosting?.label ?? "Nie wybrano",
+      frostingColor: frostingColor?.label ?? "Nie wybrano",
+      email: clientEmail,
+    };
 
-    fetch("/api/zamowienie", {
+    fetch("http://localhost:5000/api/MailsSending/cake", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
@@ -482,28 +476,19 @@ const Cupcake = ({}) => {
           return;
         }
     
-        const formatted = cupcakes.map(c => ({
-          spongeColor: formatValue(c.spongeColor),
-          fillingKind: formatValue(c.fillingKind),
-          fillingFlavor: formatValue(c.fillingFlavor),
-          creamKind: formatValue(c.creamKind),
-          creamColor: formatValue(c.creamColor),
-          quantity: c.quantity,
-          client: {
-            name: clientName,
-            surname: clientSurname,
-            mail: clientEmail,
-            phone: clientPhone
-          }
+        const formatted = cupcakes.map((c) => ({
+          spongeColor: c.spongeColor?.label ?? "Nie wybrano",
+          fillingKind: c.fillingKind?.label ?? "Nie wybrano",
+          fillingFlavor: c.fillingFlavor?.label ?? "Nie wybrano",
+          creamKind: c.creamKind?.label ?? "Nie wybrano",
+          creamColor: c.creamColor?.label ?? "Nie wybrano",
+          email: clientEmail,
         }));
     
-        fetch("/api/zamowienie", {
+        fetch("http://localhost:5000/api/MailsSending/cupcake", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            cupcakes: formatted,
-            desertKind: { label: "Cupcake", buttonId: "cupcake" }
-          })
+          body: JSON.stringify(formatted)
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))
@@ -641,28 +626,19 @@ const Macaroon = ({}) => {
           return;
         }
     
-        const formatted = macaroons.map(m => ({
-          spongeColor: formatValue(m.spongeColor),
-          fillingKind: formatValue(m.fillingKind),
-          fillingFlavor: formatValue(m.fillingFlavor),
-          creamKind: formatValue(m.creamKind),
-          creamColor: formatValue(m.creamColor),
-          quantity: m.quantity,
-          client: {
-            name: clientName,
-            surname: clientSurname,
-            mail: clientEmail,
-            phone: clientPhone
-          }
+        const formatted = macaroons.map((m) => ({
+          spongeColor: m.spongeColor?.label ?? "Nie wybrano",
+          fillingKind: m.fillingKind?.label ?? "Nie wybrano",
+          fillingFlavor: m.fillingFlavor?.label ?? "Nie wybrano",
+          creamKind: m.creamKind?.label ?? "Nie wybrano",
+          creamColor: m.creamColor?.label ?? "Nie wybrano",
+          email: clientEmail,
         }));
     
-        fetch("/api/zamowienie", {
+        fetch("http://localhost:5000/api/MailsSending/macaroon", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            macaroons: formatted,
-            desertKind: { label: "Macaroon", buttonId: "macaroon" }
-          })
+          body: JSON.stringify(formatted)
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))

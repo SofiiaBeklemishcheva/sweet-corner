@@ -76,9 +76,7 @@ const Cake = ({  }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
     })
-      .then(res => res.json())
-      .then(data => alert("Zamówienie wysłane!"))
-      .then(() => navigate("/thank-you"))
+      .then(() => navigate("/thankYou"))
       .catch(err => console.error("Błąd przy wysyłce:", err));
   };
 
@@ -490,9 +488,7 @@ const Cupcake = ({}) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formatted)
         })
-          .then(res => res.json())
-          .then(() => alert("Zamówienie wysłane!"))
-          .then(() => navigate("/thank-you"))
+          .then(() => navigate("/thankYou"))
           .catch(err => console.error("Błąd:", err));
       };
     
@@ -640,9 +636,7 @@ const Macaroon = ({}) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formatted)
         })
-          .then(res => res.json())
-          .then(() => alert("Zamówienie wysłane!"))
-          .then(() => navigate("/thank-you"))
+          .then(() => navigate("/thankYou"))
           .catch(err => console.error("Błąd:", err));
       };
 

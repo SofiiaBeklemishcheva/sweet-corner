@@ -64,7 +64,7 @@ const Cake = ({  }) => {
       email: "sweeetcornerr@gmail.com",
     };
 
-    fetch("http://localhost:5134/api/MailsSending/cake", {
+    fetch("http://localhost:5000/api/MailsSending/cake", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData)
@@ -419,7 +419,7 @@ const Cupcake = ({}) => {
           email: "sweeetcornerr@gmail.com",
         }));
     
-        fetch("http://localhost:5134/api/MailsSending/cupcake", {
+        fetch("http://localhost:5000/api/MailsSending/cupcake", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formatted)
@@ -557,7 +557,7 @@ const Macaroon = ({}) => {
           email: "sweeetcornerr@gmail.com",
         }));
     
-        fetch("http://localhost:5134/api/MailsSending/macaroon", {
+        fetch("http://localhost:5000/api/MailsSending/macaroon", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formatted)

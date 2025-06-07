@@ -69,6 +69,7 @@ const Cake = ({  }) => {
       creamFlavor: creamFlavor?.label ?? "Nie wybrano",
       frosting: cakeFrosting?.label ?? "Nie wybrano",
       frostingColor: frostingColor?.label ?? "Nie wybrano",
+<<<<<<< HEAD
       email: "sweeetcornerr@gmail.com",
         desertKind: {label: "Tort", buttonId: "cake"},
         client: {
@@ -78,6 +79,10 @@ const Cake = ({  }) => {
             phone: clientPhone
           }
       };
+=======
+      email: clientEmail,
+    };
+>>>>>>> 0e8c4692fe561015f25486140b17e2c7d9f480a8
 
     fetch("http://localhost:5000/api/MailsSending/cake", {
       method: "POST",
@@ -480,12 +485,17 @@ const Cupcake = ({}) => {
           return;
         }
     
+<<<<<<< HEAD
         const formatted = cupcakes.map(c => ({
+=======
+        const formatted = cupcakes.map((c) => ({
+>>>>>>> 0e8c4692fe561015f25486140b17e2c7d9f480a8
           spongeColor: c.spongeColor?.label ?? "Nie wybrano",
           fillingKind: c.fillingKind?.label ?? "Nie wybrano",
           fillingFlavor: c.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: c.creamKind?.label ?? "Nie wybrano",
           creamColor: c.creamColor?.label ?? "Nie wybrano",
+<<<<<<< HEAD
           email: "sweeetcornerr@gmail.com",
           client: {
             name: clientName,
@@ -493,6 +503,9 @@ const Cupcake = ({}) => {
             mail: clientEmail,
             phone: clientPhone
           }
+=======
+          email: clientEmail,
+>>>>>>> 0e8c4692fe561015f25486140b17e2c7d9f480a8
         }));
     
         fetch("/api/zamowienie", {
@@ -639,12 +652,17 @@ const Macaroon = ({}) => {
           return;
         }
     
+<<<<<<< HEAD
         const formatted = macaroons.map(m => ({
+=======
+        const formatted = macaroons.map((m) => ({
+>>>>>>> 0e8c4692fe561015f25486140b17e2c7d9f480a8
           spongeColor: m.spongeColor?.label ?? "Nie wybrano",
           fillingKind: m.fillingKind?.label ?? "Nie wybrano",
           fillingFlavor: m.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: m.creamKind?.label ?? "Nie wybrano",
           creamColor: m.creamColor?.label ?? "Nie wybrano",
+<<<<<<< HEAD
           email: "sweeetcornerr@gmail.com",
           quantity: m.quantity,
           client: {
@@ -653,6 +671,9 @@ const Macaroon = ({}) => {
             mail: clientEmail,
             phone: clientPhone
           }
+=======
+          email: clientEmail,
+>>>>>>> 0e8c4692fe561015f25486140b17e2c7d9f480a8
         }));
     
         fetch("/api/zamowienie", {

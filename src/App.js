@@ -7,7 +7,7 @@ import Blog from './pages/Blog';
 import Offer from "./pages/Offer";
 import OwnDesert from "./pages/OwnDesert";
 import AboutUs from "./pages/AboutUs";
-import ThankYouPage from "./pages/ThankYouPage ";
+import ThankYouPage from "./pages/ThankYouPage";
 
 function App() {
   return (

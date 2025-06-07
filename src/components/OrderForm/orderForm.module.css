@@ -1,0 +1,27 @@
+.clientDataContainer{
+    display: flex;
+    flex-direction: column;
+}
+.clientDataTitle{
+
+}
+.clientDataInput{
+    width: 590px;
+    height: 40px;
+    margin: 5px 0 5px 0;
+    border-radius: 10px;
+    border: 1px solid var(--darkBlue);
+    padding: 3px;
+}
+.submitButton{
+    display: flex;
+    border-radius: 20px;
+    width: 220px;
+    height: 65px;
+    background-color: var(--lightMint);
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: var(--fontSize16);
+    font-weight: var(--fontWeightBold);
+}

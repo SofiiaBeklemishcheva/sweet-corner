@@ -42,7 +42,7 @@ const RowWithRectangledButtons = ({buttons, stepNumber, stepDescription}) => {
             onClick = {button.onClick}
             state = {button.state}
             buttonId = {button.buttonId}
-            buttonStyles={button.style}
+            buttonSize={button.buttonSize}
             />
         )}
         </div>
@@ -69,7 +69,7 @@ const RowWithRoundedButtons = ({buttons, stepNumber, stepDescription, selectedBu
             state = {button.state}
             buttonData={button}
             buttonId={button.buttonId}
-            buttonStyles={button.style}
+            buttonSize={button.buttonSize}
             selectedButton = {selectedButton}
             setButton = {setButton}
             />

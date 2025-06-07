@@ -1,6 +1,7 @@
 import styles from "./orderForm.module.css";
 import StepRow from "../StepRow/stepRow.js";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrderForm = ({ type }) => {
 
@@ -24,15 +25,22 @@ const OrderForm = ({ type }) => {
     );
 };
 
+
 const Cake = ({  }) => {
 
   const [selectedSponge, setSelectedSponge] = useState(null);
   const [fillingKind, setFillingKind] = useState(null);
   const [creamKind, setCreamKind] = useState(null);
   const [cakeFrosting, setCakeFrosting] = useState(null);
-  const [fillingFlavor, setFillingFlavor] = useState(null); // Nowy
-  const [creamColor, setCreamColor] = useState(null); // Nowy
-  const [creamFlavor, setCreamFlavor] = useState(null); // Nowy
+  const [fillingFlavor, setFillingFlavor] = useState(null); 
+  const [creamColor, setCreamColor] = useState(null); 
+  const [creamFlavor, setCreamFlavor] = useState(null); 
+  const [clientName, setClientName] = useState('');
+  const [clientSurname, setClientSurname] = useState('');
+  const [clientEmail, setClientEmail] = useState('');
+  const [clientPhone, setClientPhone] = useState('');
+  const navigate = useNavigate();
+
 
   const [frostingColor, setFrostingColor] = useState(null); 
 
@@ -62,7 +70,14 @@ const Cake = ({  }) => {
       frosting: cakeFrosting?.label ?? "Nie wybrano",
       frostingColor: frostingColor?.label ?? "Nie wybrano",
       email: "sweeetcornerr@gmail.com",
-    };
+        desertKind: {label: "Tort", buttonId: "cake"},
+        client: {
+            name: clientName,
+            surname: clientSurname,
+            mail: clientEmail,
+            phone: clientPhone
+          }
+      };
 
     fetch("http://localhost:5000/api/MailsSending/cake", {
       method: "POST",
@@ -71,73 +86,85 @@ const Cake = ({  }) => {
     })
       .then(res => res.json())
       .then(data => alert("Zamówienie wysłane!"))
+      .then(() => navigate("/thank-you"))
       .catch(err => console.error("Błąd przy wysyłce:", err));
   };
 
   const flavors = [
-    {
-      type: "cakeFilling",
-      label: "Wanilia",
-      src: "../assets/flavors/vanilla.png", // możesz podmienić na faktyczne pliki
-      buttonId: "vanilla",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Czekolada",
-      src: "../assets/flavors/chocolate.png",
-      buttonId: "chocolate",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Truskawka",
-      src: "../assets/flavors/strawberry.png",
-      buttonId: "strawberry",
-      style: "small"
-    }
+    { type: "cakeFilling",  label: "Kinder", src: "../assets/fillingKinds/kinder.jpg", buttonId: "kinder", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Nutella", src: "../assets/fillingKinds/nutella.jpg", buttonId: "nutella", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Biała czekolada z wanilią", src: "../assets/fillingKinds/white_chocolate_vanilla.jpg", buttonId: "white_chocolate_vanilla", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Karmel z solą morską", src: "../assets/fillingKinds/salted_caramel.jpg", buttonId: "salted_caramel", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Krem pistacjowy", src: "../assets/fillingKinds/pistachio.jpeg", buttonId: "pistachio", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Orzech laskowy z praliną", src: "../assets/fillingKinds/hazelnut_praline.jpg", buttonId: "hazelnut_praline", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Masa migdałowa (marcepanowa)", src: "../assets/fillingKinds/almond_marzipan.jpg", buttonId: "almond_marzipan", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Kokosowo-rumowa", src: "../assets/fillingKinds/coconut_rum.jpg", buttonId: "coconut_rum", buttonSize: "small" },
+    { type: "cakeFilling",  label: "Toffi z espresso", src: "../assets/fillingKinds/toffee_espresso.webp", buttonId: "toffee_espresso", buttonSize: "small" }
   ];
+
+  const fillingFlavorsByKind = {
+    jam: [
+      { type: "cakeFilling",  label: "Truskawka z waniliją", src: "../assets/jams/strawberryVanilla.webp", buttonId: "strawberryVanilla", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Malina z różą", src: "../assets/jams/raspberryRose.jpg", buttonId: "raspberryRose", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Czarna porzeczka", src: "../assets/jams/blackCurrant.webp", buttonId: "blackCurrant", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Pomarańczowa z kardamonem", src: "../assets/jams/orangeCardamom.webp", buttonId: "orangeCardamom", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Mango-marakuja", src: "../assets/jams/mangoPassion.jpg", buttonId: "mangoPassion", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Jabłkowo-cynamonowa", src: "../assets/jams/appleCinnamon.jpg", buttonId: "appleCinnamon", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Gruszka", src: "../assets/jams/pear.webp", buttonId: "pear", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Figowa z lawendą", src: "../assets/jams/figLavender.jpg", buttonId: "figLavender", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Wiśniowo-amaretto", src: "../assets/jams/cherryAmaretto.jpg", buttonId: "cherryAmaretto", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Borówkowo-limonkowa", src: "../assets/jams/blueberryLime.jpg", buttonId: "blueberryLime", buttonSize: "small" }
+    ],
+    jelly: [
+        { type: "cakeFilling",  label: "Truskawka z waniliją", src: "../assets/jams/strawberryVanilla.webp", buttonId: "strawberryVanilla", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Malina z różą", src: "../assets/jams/raspberryRose.jpg", buttonId: "raspberryRose", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarna porzeczka", src: "../assets/jams/blackCurrant.webp", buttonId: "blackCurrant", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Pomarańczowa z kardamonem", src: "../assets/jams/orangeCardamom.webp", buttonId: "orangeCardamom", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Mango-marakuja", src: "../assets/jams/mangoPassion.jpg", buttonId: "mangoPassion", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Jabłkowo-cynamonowa", src: "../assets/jams/appleCinnamon.jpg", buttonId: "appleCinnamon", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Gruszka", src: "../assets/jams/pear.webp", buttonId: "pear", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Figowa z lawendą", src: "../assets/jams/figLavender.jpg", buttonId: "figLavender", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Wiśniowo-amaretto", src: "../assets/jams/cherryAmaretto.jpg", buttonId: "cherryAmaretto", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Borówkowo-limonkowa", src: "../assets/jams/blueberryLime.jpg", buttonId: "blueberryLime", buttonSize: "small" }
+      ],
+    flavored: [
+      { type: "cakeFilling",  label: "Kinder", src: "../assets/fillingKinds/kinder.jpg", buttonId: "kinder", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Nutella", src: "../assets/fillingKinds/nutella.jpg", buttonId: "nutella", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Biała czekolada z wanilią", src: "../assets/fillingKinds/white_chocolate_vanilla.jpg", buttonId: "white_chocolate_vanilla", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Karmel z solą morską", src: "../assets/fillingKinds/salted_caramel.jpg", buttonId: "salted_caramel", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Krem pistacjowy", src: "../assets/fillingKinds/pistachio.jpeg", buttonId: "pistachio", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Orzech laskowy z praliną", src: "../assets/fillingKinds/hazelnut_praline.jpg", buttonId: "hazelnut_praline", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Masa migdałowa (marcepanowa)", src: "../assets/fillingKinds/almond_marzipan.jpg", buttonId: "almond_marzipan", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Kokosowo-rumowa", src: "../assets/fillingKinds/coconut_rum.jpg", buttonId: "coconut_rum", buttonSize: "small" },
+      { type: "cakeFilling",  label: "Toffi z espresso", src: "../assets/fillingKinds/toffee_espresso.webp", buttonId: "toffee_espresso", buttonSize: "small" }
+    ]
+  };
   
   const colors = [
-    {
-      type: "cakeFilling",
-      label: "Biały",
-      src: "../assets/colors/white.png",
-      buttonId: "white",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Różowy",
-      src: "../assets/colors/pink.png",
-      buttonId: "pink",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Niebieski",
-      src: "../assets/colors/blue.png",
-      buttonId: "blue",
-      style: "small"
-    }
+        { type: "cakeFilling",  label: "Biały", src: "../assets/creamColors/pastry-bag (3).png", buttonId: "white", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (2).png", buttonId: "pink", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Fioletowy", src: "../assets/creamColors/pastry-bag (1).png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarny", src: "../assets/creamColors/pastry-bag (4).png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Turkusowy", src: "../assets/creamColors/pastry-bag (5).png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Granatowy", src: "../assets/creamColors/pastry-bag (6).png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czerwony", src: "../assets/creamColors/pastry-bag (7).png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Brązowy", src: "../assets/creamColors/pastry-bag (8).png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (9).png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag.png", buttonId: "orange", buttonSize: "small" }
   ];
   
 
   const spongeColorButtons = [
-    {
-      type: "cakeFilling",
-      label: "Jasny",
-      src: "...",
-      buttonId: "lightColor",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Ciemny",
-      src: "...",
-      buttonId: "darkColor",
-      style: "small"
-    }
+        { type: "cakeFilling",  label: "Biały", src: "../assets/spongeColor/white.png", buttonId: "white", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/spongeColor/pink.png", buttonId: "pink", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Fioletowy", src: "../assets/spongeColor/purple.png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarny", src: "../assets/spongeColor/black.png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Turkusowy", src: "../assets/spongeColor/turcus.png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Granatowy", src: "../assets/spongeColor/navyBlue.png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czerwony", src: "../assets/spongeColor/red.png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Brązowy", src: "../assets/spongeColor/brown.png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Zielony", src: "../assets/spongeColor/green.png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Pomarańczowy", src: "../assets/spongeColor/orange.png", buttonId: "orange", buttonSize: "small" }
   ];
 
     const cakeFrostings = [
@@ -279,21 +306,26 @@ const Cake = ({  }) => {
             )}
 
         <StepRow
-        stepNumber= {"Krok 2"}
-        stepDescription= {"Wybierz rodzaj nadzienia"}
+        stepNumber="Krok 2"
+        stepDescription="Wybierz rodzaj nadzienia"
         buttons={fillingKinds}
         selectedButton={fillingKind}
-        setButton={setFillingKind}
+        setButton={(val) => {
+            setFillingKind(val);
+            setFillingFlavor(null); // Resetuj smak po zmianie rodzaju
+        }}
         />
-         {fillingKind && (
-        <StepRow
-          stepNumber="Krok 2.1"
-          stepDescription="Wybierz smak nadzienia"
-          buttons={flavors}
-          selectedButton={fillingFlavor}
-          setButton={setFillingFlavor}
-        />
-      )}
+
+        {fillingKind?.buttonId &&
+        fillingFlavorsByKind[fillingKind.buttonId] && (
+            <StepRow
+            stepNumber="Krok 2.1"
+            stepDescription="Wybierz smak nadzienia"
+            buttons={fillingFlavorsByKind[fillingKind.buttonId]}
+            selectedButton={fillingFlavor}
+            setButton={setFillingFlavor}
+            />
+        )}
 
         <StepRow
         stepNumber= {"Krok 3"}
@@ -338,7 +370,15 @@ const Cake = ({  }) => {
         />
       )}
 
-      <button onClick={submitOrder}>Wyślij zamówienie</button>
+    <div className={styles.clientDataContainer}>
+    <h2 className={styles.clientDataTitle}>Podaj swoje dane, abyśmy mogli się skontaktować</h2>
+    <input className={styles.clientDataInput} type="text" placeholder="Imię" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+    <input className={styles.clientDataInput} type="text" placeholder="Nazwisko" value={clientSurname} onChange={(e) => setClientSurname(e.target.value)} />
+    <input className={styles.clientDataInput} type="email" placeholder="Email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+    <input className={styles.clientDataInput} type="tel" placeholder="Telefon" value={clientPhone} onChange={(e) => setClientPhone(e.target.value)} />
+    </div>
+
+      <button className={styles.submitButton} onClick={submitOrder}>Wyślij zamówienie</button>
    </div>); 
 };
 
@@ -355,6 +395,13 @@ const Cupcake = ({}) => {
     
       const [cupcakes, setCupcakes] = useState(initialCupcakes);
       const [selectedCupcakeIndex, setSelectedCupcakeIndex] = useState(null);
+      const [clientName, setClientName] = useState('');
+        const [clientSurname, setClientSurname] = useState('');
+        const [clientEmail, setClientEmail] = useState('');
+        const [clientPhone, setClientPhone] = useState('');
+        const navigate = useNavigate();
+
+
     
       const updateCupcake = (field, value) => {
         const updated = [...cupcakes];
@@ -366,42 +413,65 @@ const Cupcake = ({}) => {
       };
     
       const spongeColors = [
-        { type: "cakeFilling", label: "Jasny", src: "../assets/cupcakesColors/cupcake (1).png", buttonId: "lightColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (2).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (brown).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (green).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (navy-blue).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (purple).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (red).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (rose).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (turcus).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake orange.png", buttonId: "darkColor", style: "small" }
+        { type: "cakeFilling", label: "Jasny", src: "../assets/cupcakesColors/cupcake (1).png", buttonId: "lightColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (2).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (brown).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (green).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (navy-blue).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (purple).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (red).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (rose).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (turcus).png", buttonId: "darkColor", buttonSize: "small" },
+        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake orange.png", buttonId: "darkColor", buttonSize: "small" }
       ];
     
       const fillingKinds = [
-        {type: "cakeFilling", label: "Konfitura owocowa", src: "../assets/fillingKind/jam.png", buttonId: "jam", style: "small" },
-        {type: "cakeFilling", label: "Masa smakowa", src: "../assets/fillingKind/whip-cream.png", buttonId: "flavored", style: "small" },
+        {type: "cakeFilling", label: "Konfitura owocowa", src: "../assets/fillingKind/jam.png", buttonId: "jam", buttonStyles: "" },
+        {type: "cakeFilling", label: "Masa smakowa", src: "../assets/fillingKind/whip-cream.png", buttonId: "flavored", buttonStyles: "" },
       ];
     
       const fillingFlavorsByKind = {
         jam: [
-          { type: "cakeFilling",  label: "Truskawka", src: "../assets/flavors/strawberry.png", buttonId: "strawberry", style: "small" },
-          { type: "cakeFilling",  label: "Malina", src: "../assets/flavors/raspberry.png", buttonId: "raspberry", style: "small" }
+            { type: "cakeFilling",  label: "Truskawka z waniliją", src: "../assets/jams/strawberryVanilla.webp", buttonId: "strawberryVanilla", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Malina z różą", src: "../assets/jams/raspberryRose.jpg", buttonId: "raspberryRose", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Czarna porzeczka", src: "../assets/jams/blackCurrant.webp", buttonId: "blackCurrant", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Pomarańczowa z kardamonem", src: "../assets/jams/orangeCardamom.webp", buttonId: "orangeCardamom", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Mango-marakuja", src: "../assets/jams/mangoPassion.jpg", buttonId: "mangoPassion", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Jabłkowo-cynamonowa", src: "../assets/jams/appleCinnamon.jpg", buttonId: "appleCinnamon", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Gruszka", src: "../assets/jams/pear.webp", buttonId: "pear", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Figowa z lawendą", src: "../assets/jams/figLavender.jpg", buttonId: "figLavender", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Wiśniowo-amaretto", src: "../assets/jams/cherryAmaretto.jpg", buttonId: "cherryAmaretto", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Borówkowo-limonkowa", src: "../assets/jams/blueberryLime.jpg", buttonId: "blueberryLime", buttonSize: "small" }
         ],
         flavored: [
-          { type: "cakeFilling",  label: "Kinder", src: "../assets/flavors/kinder.png", buttonId: "kinder", style: "small" },
-          { type: "cakeFilling",  label: "Orzech", src: "../assets/flavors/nut.png", buttonId: "nut", style: "small" }
+            { type: "cakeFilling",  label: "Kinder", src: "../assets/fillingKinds/kinder.jpg", buttonId: "kinder", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Nutella", src: "../assets/fillingKinds/nutella.jpg", buttonId: "nutella", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Biała czekolada z wanilią", src: "../assets/fillingKinds/white_chocolate_vanilla.jpg", buttonId: "white_chocolate_vanilla", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Karmel z solą morską", src: "../assets/fillingKinds/salted_caramel.jpg", buttonId: "salted_caramel", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Krem pistacjowy", src: "../assets/fillingKinds/pistachio.jpeg", buttonId: "pistachio", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Orzech laskowy z praliną", src: "../assets/fillingKinds/hazelnut_praline.jpg", buttonId: "hazelnut_praline", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Masa migdałowa (marcepanowa)", src: "../assets/fillingKinds/almond_marzipan.jpg", buttonId: "almond_marzipan", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Kokosowo-rumowa", src: "../assets/fillingKinds/coconut_rum.jpg", buttonId: "coconut_rum", buttonSize: "small" },
+            { type: "cakeFilling",  label: "Toffi z espresso", src: "../assets/fillingKinds/toffee_espresso.webp", buttonId: "toffee_espresso", buttonSize: "small" }
         ]
       };
     
       const creamKinds = [
-        { type: "cakeFilling",  label: "Maślany", src: "../assets/creamKind/butterCream.jpg", buttonId: "butter", style: "small" },
-        { type: "cakeFilling",  label: "Śmietankowy", src: "../assets/creamKind/cream.jpg", buttonId: "cream", style: "small" }
+        { type: "cakeFilling",  label: "Maślany", src: "../assets/creamKind/butterCream.jpg", buttonId: "butter", buttonStyles: "" },
+        { type: "cakeFilling",  label: "Śmietankowy", src: "../assets/creamKind/cream.jpg", buttonId: "cream", buttonStyles: "" }
       ];
     
       const creamColors = [
-        { type: "cakeFilling",  label: "Biały", src: "../assets/colors/white.png", buttonId: "white", style: "small" },
-        { type: "cakeFilling",  label: "Różowy", src: "../assets/colors/pink.png", buttonId: "pink", style: "small" }
+        { type: "cakeFilling",  label: "Biały", src: "../assets/creamColors/pastry-bag (3).png", buttonId: "white", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (2).png", buttonId: "pink", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Fioletowy", src: "../assets/creamColors/pastry-bag (1).png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarny", src: "../assets/creamColors/pastry-bag (4).png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Turkusowy", src: "../assets/creamColors/pastry-bag (5).png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Granatowy", src: "../assets/creamColors/pastry-bag (6).png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czerwony", src: "../assets/creamColors/pastry-bag (7).png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Brązowy", src: "../assets/creamColors/pastry-bag (8).png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (9).png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag.png", buttonId: "orange", buttonSize: "small" }
       ];
     
       const submitCupcakeOrder = () => {
@@ -410,22 +480,32 @@ const Cupcake = ({}) => {
           return;
         }
     
-        const formatted = cupcakes.map((c) => ({
+        const formatted = cupcakes.map(c => ({
           spongeColor: c.spongeColor?.label ?? "Nie wybrano",
           fillingKind: c.fillingKind?.label ?? "Nie wybrano",
           fillingFlavor: c.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: c.creamKind?.label ?? "Nie wybrano",
           creamColor: c.creamColor?.label ?? "Nie wybrano",
           email: "sweeetcornerr@gmail.com",
+          client: {
+            name: clientName,
+            surname: clientSurname,
+            mail: clientEmail,
+            phone: clientPhone
+          }
         }));
     
-        fetch("http://localhost:5000/api/MailsSending/cupcake", {
+        fetch("/api/zamowienie", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formatted)
+          body: JSON.stringify({
+            cupcakes: formatted,
+            desertKind: { label: "Cupcake", buttonId: "cupcake" }
+          })
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))
+          .then(() => navigate("/thank-you"))
           .catch(err => console.error("Błąd:", err));
       };
     
@@ -509,9 +589,15 @@ const Cupcake = ({}) => {
             </div>
           )}
     
-          <button onClick={submitCupcakeOrder} style={{ marginTop: "20px" }}>
-            Wyślij zamówienie
-          </button>
+    <div className={styles.clientDataContainer}>
+    <h2 className={styles.clientDataTitle}>Podaj swoje dane, abyśmy mogli się skontaktować</h2>
+    <input className={styles.clientDataInput} type="text" placeholder="Imię" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+    <input className={styles.clientDataInput} type="text" placeholder="Nazwisko" value={clientSurname} onChange={(e) => setClientSurname(e.target.value)} />
+    <input className={styles.clientDataInput} type="email" placeholder="Email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+    <input className={styles.clientDataInput} type="tel" placeholder="Telefon" value={clientPhone} onChange={(e) => setClientPhone(e.target.value)} />
+    </div>
+
+      <button className={styles.submitButton} onClick={submitCupcakeOrder}>Wyślij zamówienie</button>
         </div>
       );
 };
@@ -529,7 +615,12 @@ const Macaroon = ({}) => {
   
     const [macaroons, setMacaroons] = useState(initialMacaroons);
     const [selectedMacaroonIndex, setSelectedMacaroonIndex] = useState(null);
-  
+    const [clientName, setClientName] = useState('');
+    const [clientSurname, setClientSurname] = useState('');
+    const [clientEmail, setClientEmail] = useState('');
+    const [clientPhone, setClientPhone] = useState('');
+    const navigate = useNavigate();
+
     const updateMacaroon = (field, value) => {
       const updated = [...macaroons];
       updated[selectedMacaroonIndex] = {
@@ -548,62 +639,112 @@ const Macaroon = ({}) => {
           return;
         }
     
-        const formatted = macaroons.map((m) => ({
+        const formatted = macaroons.map(m => ({
           spongeColor: m.spongeColor?.label ?? "Nie wybrano",
           fillingKind: m.fillingKind?.label ?? "Nie wybrano",
           fillingFlavor: m.fillingFlavor?.label ?? "Nie wybrano",
           creamKind: m.creamKind?.label ?? "Nie wybrano",
           creamColor: m.creamColor?.label ?? "Nie wybrano",
           email: "sweeetcornerr@gmail.com",
+          quantity: m.quantity,
+          client: {
+            name: clientName,
+            surname: clientSurname,
+            mail: clientEmail,
+            phone: clientPhone
+          }
         }));
     
-        fetch("http://localhost:5000/api/MailsSending/macaroon", {
+        fetch("/api/zamowienie", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formatted)
+          body: JSON.stringify({
+            macaroons: formatted,
+            desertKind: { label: "Macaroon", buttonId: "macaroon" }
+          })
         })
           .then(res => res.json())
           .then(() => alert("Zamówienie wysłane!"))
+          .then(() => navigate("/thank-you"))
           .catch(err => console.error("Błąd:", err));
       };
 
       const spongeColors = [
-        { type: "cakeFilling", label: "Jasny", src: "../assets/cupcakesColors/cupcake (1).png", buttonId: "lightColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (2).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (brown).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (green).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (navy-blue).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (purple).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (red).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (rose).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake (turcus).png", buttonId: "darkColor", style: "small" },
-        { type: "cakeFilling", label: "Ciemny", src: "../assets/cupcakesColors/cupcake orange.png", buttonId: "darkColor", style: "small" }
+        { type: "cakeFilling", label: "Naturalny", src: "../assets/macaroonsColors/macaroon (3).png", buttonId: "natural", buttonSize: "small" },
+        { type: "cakeFilling", label: "Czarny", src: "../assets/macaroonsColors/macaroon (4).png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling", label: "Brązowy", src: "../assets/macaroonsColors/macaroon (brown).png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling", label: "Zielony", src: "../assets/macaroonsColors/macaroon (1).png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling", label: "Granatowy", src: "../assets/macaroonsColors/macaroon (navy-blue).png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling", label: "Fioletowy", src: "../assets/macaroonsColors/macaroon (purple).png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling", label: "Czerwony", src: "../assets/macaroonsColors/macaroon (6).png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling", label: "Różowy", src: "../assets/macaroonsColors/macaroon (rose).png", buttonId: "rose", buttonSize: "small" },
+        { type: "cakeFilling", label: "Turkusowy", src: "../assets/macaroonsColors/macaroon (turcus).png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling", label: "Pomarańczowy", src: "../assets/macaroonsColors/macaroon (2).png", buttonId: "dorange", buttonSize: "small" }
       ];
     
       const fillingKinds = [
-        {type: "cakeFilling", label: "Konfitura owocowa", src: "../assets/fillingKind/jam.png", buttonId: "jam", style: "small" },
-        {type: "cakeFilling", label: "Masa smakowa", src: "../assets/fillingKind/whip-cream.png", buttonId: "flavored", style: "small" },
+        {type: "cakeFilling", label: "Konfitura owocowa", src: "../assets/fillingKind/jam.png", buttonId: "jam", buttonSize: "" },
+        {type: "cakeFilling", label: "Masa smakowa", src: "../assets/fillingKind/whip-cream.png", buttonId: "flavored", buttonSize: "" },
       ];
     
       const fillingFlavorsByKind = {
         jam: [
-          { type: "cakeFilling",  label: "Truskawka", src: "../assets/flavors/strawberry.png", buttonId: "strawberry", style: "small" },
-          { type: "cakeFilling",  label: "Malina", src: "../assets/flavors/raspberry.png", buttonId: "raspberry", style: "small" }
+          { type: "cakeFilling",  label: "Truskawka z waniliją", src: "../assets/jams/strawberryVanilla.webp", buttonId: "strawberryVanilla", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Malina z różą", src: "../assets/jams/raspberryRose.jpg", buttonId: "raspberryRose", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Czarna porzeczka", src: "../assets/jams/blackCurrant.webp", buttonId: "blackCurrant", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Pomarańczowa z kardamonem", src: "../assets/jams/orangeCardamom.webp", buttonId: "orangeCardamom", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Mango-marakuja", src: "../assets/jams/mangoPassion.jpg", buttonId: "mangoPassion", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Jabłkowo-cynamonowa", src: "../assets/jams/appleCinnamon.jpg", buttonId: "appleCinnamon", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Gruszka", src: "../assets/jams/pear.webp", buttonId: "pear", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Figowa z lawendą", src: "../assets/jams/figLavender.jpg", buttonId: "figLavender", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Wiśniowo-amaretto", src: "../assets/jams/cherryAmaretto.jpg", buttonId: "cherryAmaretto", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Borówkowo-limonkowa", src: "../assets/jams/blueberryLime.jpg", buttonId: "blueberryLime", buttonSize: "small" }
         ],
         flavored: [
-          { type: "cakeFilling",  label: "Kinder", src: "../assets/flavors/kinder.png", buttonId: "kinder", style: "small" },
-          { type: "cakeFilling",  label: "Orzech", src: "../assets/flavors/nut.png", buttonId: "nut", style: "small" }
+          { type: "cakeFilling",  label: "Kinder", src: "../assets/fillingKinds/kinder.jpg", buttonId: "kinder", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Nutella", src: "../assets/fillingKinds/nutella.jpg", buttonId: "nutella", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Biała czekolada z wanilią", src: "../assets/fillingKinds/white_chocolate_vanilla.jpg", buttonId: "white_chocolate_vanilla", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Karmel z solą morską", src: "../assets/fillingKinds/salted_caramel.jpg", buttonId: "salted_caramel", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Krem pistacjowy", src: "../assets/fillingKinds/pistachio.jpeg", buttonId: "pistachio", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Orzech laskowy z praliną", src: "../assets/fillingKinds/hazelnut_praline.jpg", buttonId: "hazelnut_praline", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Masa migdałowa (marcepanowa)", src: "../assets/fillingKinds/almond_marzipan.jpg", buttonId: "almond_marzipan", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Kokosowo-rumowa", src: "../assets/fillingKinds/coconut_rum.jpg", buttonId: "coconut_rum", buttonSize: "small" },
+          { type: "cakeFilling",  label: "Toffi z espresso", src: "../assets/fillingKinds/toffee_espresso.webp", buttonId: "toffee_espresso", buttonSize: "small" }
         ]
       };
     
       const creamKinds = [
-        { type: "cakeFilling",  label: "Maślany", src: "../assets/creamKind/butterCream.jpg", buttonId: "butter", style: "small" },
-        { type: "cakeFilling",  label: "Śmietankowy", src: "../assets/creamKind/cream.jpg", buttonId: "cream", style: "small" }
-      ];
+        {   type: "cakeFilling",
+            label: "Maślany",
+            src: "../assets/creamKind/butterCream.jpg",
+            buttonId: "creamButton",
+            buttonSize: ""
+        },
+        {   type: "cakeFilling",
+            label: "Śmietankowy",
+            src: "../assets/creamKind/cream.jpg",
+            buttonId: "creamCream",
+            buttonSize: ""
+        },
+        {   type: "cakeFilling",
+            label: "Ganache",
+            src: "../assets/creamKind/ganache.webp",
+            buttonId: "creamGanache",
+            buttonSize: ""
+        },
+    ];
     
       const creamColors = [
-        { type: "cakeFilling",  label: "Biały", src: "../assets/colors/white.png", buttonId: "white", style: "small" },
-        { type: "cakeFilling",  label: "Różowy", src: "../assets/colors/pink.png", buttonId: "pink", style: "small" }
+        { type: "cakeFilling",  label: "Biały", src: "../assets/creamColors/pastry-bag (3).png", buttonId: "white", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (2).png", buttonId: "pink", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Fioletowy", src: "../assets/creamColors/pastry-bag (1).png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarny", src: "../assets/creamColors/pastry-bag (4).png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Turkusowy", src: "../assets/creamColors/pastry-bag (5).png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Granatowy", src: "../assets/creamColors/pastry-bag (6).png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czerwony", src: "../assets/creamColors/pastry-bag (7).png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Brązowy", src: "../assets/creamColors/pastry-bag (8).png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag (9).png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/creamColors/pastry-bag.png", buttonId: "orange", buttonSize: "small" }
       ];
   
     return (
@@ -629,17 +770,6 @@ const Macaroon = ({}) => {
   
         {selectedMacaroonIndex !== null && (
           <div style={{ marginTop: "20px" }}>
-            <label>Ilość:
-              <input
-                type="number"
-                min="1"
-                value={macaroons[selectedMacaroonIndex].quantity}
-                onChange={(e) =>
-                  updateMacaroon("quantity", parseInt(e.target.value) || 1)
-                }
-                style={{ marginLeft: "10px", width: "60px" }}
-              />
-            </label>
   
             <StepRow
               stepNumber="Krok 1"
@@ -697,13 +827,17 @@ const Macaroon = ({}) => {
           </div>
         )}
   
-        <button onClick={submitMacaroonOrder} style={{ marginTop: "20px" }}>
-          Wyślij zamówienie
-        </button>
+  <div className={styles.clientDataContainer}>
+    <h2 className={styles.clientDataTitle}>Podaj swoje dane, abyśmy mogli się skontaktować</h2>
+    <input className={styles.clientDataInput} type="text" placeholder="Imię" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+    <input className={styles.clientDataInput} type="text" placeholder="Nazwisko" value={clientSurname} onChange={(e) => setClientSurname(e.target.value)} />
+    <input className={styles.clientDataInput} type="email" placeholder="Email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+    <input className={styles.clientDataInput} type="tel" placeholder="Telefon" value={clientPhone} onChange={(e) => setClientPhone(e.target.value)} />
+    </div>
+
+      <button className={styles.submitButton} onClick={submitMacaroonOrder}>Wyślij zamówienie</button>
       </div>
     );
   };
-  
-
 
 export default OrderForm;

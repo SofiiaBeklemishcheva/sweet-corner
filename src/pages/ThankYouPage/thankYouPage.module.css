@@ -1,0 +1,55 @@
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: var(--lightRose);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+}
+
+.heading {
+  font-size: var(--fontSize32, 32px);
+  font-weight: var(--fontWeightBold, 700);
+  color: var(--darkBlue);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.paragraph {
+  font-size: var(--fontSize18, 18px);
+  color: var(--textColor, #333);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  color: var(--textColor, #333);
+}
+
+.list li {
+  margin-bottom: 12px;
+  font-size: var(--fontSize16, 16px);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--darkBlue);
+  text-decoration: underline;
+}
+
+.thankYouNote {
+  font-size: var(--fontSize20, 20px);
+  font-weight: 500;
+  color: var(--darkRose);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.brand {
+  font-weight: bold;
+  color: var(--darkBlue);
+}

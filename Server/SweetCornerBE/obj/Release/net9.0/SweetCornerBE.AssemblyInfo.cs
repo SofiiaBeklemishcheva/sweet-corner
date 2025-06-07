@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SweetCornerBE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2298460441724136ebc601e7861849a115661ddc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2ada4cf5296b00a35dc0c730b803805e1bca0b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("SweetCornerBE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SweetCornerBE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

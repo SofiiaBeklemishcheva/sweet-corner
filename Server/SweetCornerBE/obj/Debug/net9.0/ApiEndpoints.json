@@ -46,5 +46,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SweetCornerBE.Controllers.MailsSendingController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/MailsSending/orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

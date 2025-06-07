@@ -1,5 +1,5 @@
 .rowContainer{
-    width: 100%;
+    width: 1265px;
     height: auto;
     margin: 20px;
     background-color: var(--white);
@@ -25,7 +25,8 @@
 }
 .buttonsRow{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 20px 0;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
 }

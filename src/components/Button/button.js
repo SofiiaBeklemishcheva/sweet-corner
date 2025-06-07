@@ -2,7 +2,7 @@ import styles from "./button.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Button = ({ type, label, routePath, src, onClick, state, buttonId, selectedButton, setButton }) => {
+const Button = ({ type, label, routePath, src, onClick, state, buttonId, selectedButton, setButton, buttonSize }) => {
     
     const buttonTypeSwitch = (type) => {
         switch(type) {
@@ -13,7 +13,7 @@ const Button = ({ type, label, routePath, src, onClick, state, buttonId, selecte
             case "desertType":
                 return <DerertTypeButton label={label} src={src} onClick={onClick} state={state} buttonId={buttonId}/>;
             case "cakeFilling":
-                return <DerertTypeButtonRounded label={label} src={src} onClick={onClick} state={state} buttonId={buttonId} selectedButton={selectedButton} setButton={setButton}/>;
+                return <DerertTypeButtonRounded label={label} src={src} onClick={onClick} state={state} buttonId={buttonId} selectedButton={selectedButton} setButton={setButton} buttonSize={buttonSize}/>;
             case "rectangled":
                 return <RectangledButton label={label} src={src} onClick={onClick} state={state} buttonId={buttonId}/>; 
             default:
@@ -60,21 +60,28 @@ const DerertTypeButton = ({label, src, onClick, state, buttonId}) => {
     );
 };
 
-const DerertTypeButtonRounded = ({label, src, onClick, buttonId, buttonStyles, state, selectedButton, setButton}) => {
+const DerertTypeButtonRounded = ({label, src, onClick, buttonId, buttonSize, state, selectedButton, setButton}) => {
     console.log('selectedButton:', selectedButton, 'buttonId:', buttonId);
 
-    const setButtonStyle = () => (
-        selectedButton?.buttonId === buttonId ? styles.activeButtonRounded : styles.desertKindButtonRounded
-      );
-    
+    const setButtonStyle = () => {
+        const isActive = selectedButton?.buttonId === buttonId;
+        const isSmall = buttonSize === "small";
+      
+        if (isActive && isSmall) return styles.activeButtonRoundedSmall;
+        if (isActive) return styles.activeButtonRounded;
+        if (isSmall) return styles.desertKindSmallButtonRounded;
+        return styles.desertKindButtonRounded;
+      };
+      
+      
     return(
-            <button className={buttonStyles === "small" ? styles.desertKindSmallButtonContainer : styles.desertKindButtonContainerRounded} id={buttonId} onClick={() => setButton({ label, src, buttonId, style: buttonStyles })}>
+            <button className={buttonSize === "small" ? styles.desertKindSmallButtonContainer : styles.desertKindButtonContainerRounded} id={buttonId} onClick={() => setButton({ label, src, buttonId, buttonSize })}>
                 <div className={setButtonStyle()}>
-                    <div className={styles.buttonRoundedInnerContainer}>
-                        <img className={buttonStyles === "small" ? styles.desertKindSmallButtonImg : styles.desertKindButtonImgRounded} src={src} alt={label}/>
+                    <div className={buttonSize === "small" ? styles.buttonRoundedInnerSmallContainer : styles.buttonRoundedInnerContainer}>
+                        <img className={buttonSize === "small" ? styles.desertKindSmallButtonImg : styles.desertKindButtonImgRounded} src={src} alt={label}/>
                     </div>
                 </div>
-                <div className={buttonStyles === "small" ? styles.smallRoundedButtonLabel : styles.roundedButtonLabel}>{label}</div>
+                <div className={buttonSize === "small" ? styles.smallRoundedButtonLabel : styles.roundedButtonLabel}>{label}</div>
             </button>
     );
 };

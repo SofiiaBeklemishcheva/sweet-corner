@@ -110,10 +110,18 @@
     border-radius: 75px;
     object-fit: cover;
 }
-.desertKindSmallButtonImg{
-
+.desertKindSmallButtonContainer{
+    width: 100px;
+    height: 100px;
 }
-
+.desertKindSmallButtonImg{
+    width: 80px;
+    height: 80px;
+}
+.buttonRoundedInnerSmallContainer{
+    width: 100px;
+    height: 135px;
+}
 .smallRoundedButtonLabel{
 
 }
@@ -122,4 +130,68 @@
     font-weight: var(--fontWeightBold);
     text-align: center;
     margin: 10px 0;
+}
+.smallRoundedButtonLabel{
+    font-size: var(--fontSize12);
+}
+/* Kontener przycisku */
+.desertKindSmallButtonContainer {
+    width: 160px;
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Sam zaokrąglony przycisk (normalny) */
+.desertKindSmallButtonRounded {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 1px solid var(--darkBlue);
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Sam zaokrąglony przycisk (aktywny) */
+.activeButtonRoundedSmall {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background-color: var(--lightRose);
+    border: 1px solid var(--darkBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wewnętrzne opakowanie przycisku */
+.buttonRoundedInnerSmallContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Obrazek wewnątrz małego przycisku */
+.desertKindSmallButtonImg {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+/* Etykieta */
+.smallRoundedButtonLabel {
+    font-size: var(--fontSize14);
+    font-weight: var(--fontWeightBold);
+    text-align: center;
+    margin-top: 10px;
 }

@@ -145,20 +145,16 @@ const Cake = ({  }) => {
   
 
   const spongeColorButtons = [
-    {
-      type: "cakeFilling",
-      label: "Jasny",
-      src: "...",
-      buttonId: "lightColor",
-      style: "small"
-    },
-    {
-      type: "cakeFilling",
-      label: "Ciemny",
-      src: "...",
-      buttonId: "darkColor",
-      style: "small"
-    }
+    { type: "cakeFilling",  label: "Biały", src: "../assets/spongeColors/white.png", buttonId: "white", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/spongeColors/pink.png", buttonId: "pink", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Fioletowy", src: "../assets/spongeColors/purple.png", buttonId: "purple", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czarny", src: "../assets/spongeColors/black.png", buttonId: "black", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Turkusowy", src: "../assets/spongeColors/turcus.png", buttonId: "turcus", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Granatowy", src: "../assets/spongeColors/navyBlue.png", buttonId: "navyBlue", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Czerwony", src: "../assets/spongeColors/red.png", buttonId: "red", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Brązowy", src: "../assets/spongeColors/brown.png", buttonId: "brown", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/spongeColors/green.png", buttonId: "green", buttonSize: "small" },
+        { type: "cakeFilling",  label: "Różowy", src: "../assets/spongeColors/orange.png", buttonId: "orange", buttonSize: "small" }
   ];
 
     const cakeFrostings = [

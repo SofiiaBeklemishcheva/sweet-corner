@@ -2,6 +2,8 @@ import styles from "./orderForm.module.css";
 import StepRow from "../StepRow/stepRow.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { pdf } from '@react-pdf/renderer';
+import CakeOrderPdf from '../CakeOrderPdf/cakeOrderPdf.js';
 
 const OrderForm = ({ type }) => {
 
@@ -79,6 +81,36 @@ const Cake = ({  }) => {
       .then(() => navigate("/thankYou"))
       .catch(err => console.error("Błąd przy wysyłce:", err));
   };
+
+
+
+  
+   const downloadOrder = async () => {
+  const orderData = {
+    spongeType: selectedSponge ?? null,
+    spongeColor: spongeColor ?? null,
+    fillingKind: fillingKind ?? null,
+    fillingFlavor: fillingFlavor ?? null,
+    creamKind: creamKind ?? null,
+    creamColor: creamColor ?? null,
+    creamFlavor: creamFlavor ?? null,
+    frosting: cakeFrosting ?? null,
+    frostingColor: frostingColor ?? null,
+    email: clientEmail ?? "Nie podano",
+  };
+
+  console.log("orderData:", orderData);
+
+  const blob = await pdf(<CakeOrderPdf orderData={orderData} />).toBlob();
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "zamowienie_tortu.pdf";
+  link.click();
+  URL.revokeObjectURL(url);
+};
+
 
   const flavors = [
     { type: "cakeFilling",  label: "Kinder", src: "../assets/fillingKinds/kinder.jpg", buttonId: "kinder", buttonSize: "small" },
@@ -369,6 +401,7 @@ const Cake = ({  }) => {
     </div>
 
       <button className={styles.submitButton} onClick={submitOrder}>Wyślij zamówienie</button>
+      <button className={styles.submitButton} onClick={downloadOrder}>Pobierz zamówienie</button>
    </div>); 
 };
 
